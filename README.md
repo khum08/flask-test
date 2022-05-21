@@ -1,5 +1,5 @@
 # flask-test
-This is flask basic project.
+This is a flask basic project.
 
 # Library in use
 - flask
