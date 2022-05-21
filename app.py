@@ -1,4 +1,3 @@
-from random import random
 from flask import Flask, render_template, request, jsonify
 
 from config import DevConfig, ProConfig
