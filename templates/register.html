@@ -5,26 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="/static/css/style.css"></link>
 </head>
 <body>
     <script src="/static/js/jquery-3.6.0.min.js"></script>
-    <div>Register Page</div>
-    <div>
-        <div>
-            <label>nickname:</label>
+    <div class="title">Register Page</div>
+    <div class="form-container">
+        <div class="form-item">
+            <div>Nickname:</div>
             <input type="text" name="nickname" id="nickname"></input>
         </div>
-        <div>
-            <label>username:</label>
+        <div class="form-item">
+            <div>Username:</div>
             <input type="text" name="username" id="username"></input>
         </div>
 
-        <div>
-            <label>password:</label>
+        <div class="form-item">
+            <div>Password:</div>
             <input type="password" name="password" id="password"></input>
         </div>
+        <div class="form-item">
+            <button id="register" type="primary" class="btn-register" onclick="register()">Register</button>
+        </div>
     </div>
-    <button id="register" type="primary" class="btn" onclick="register()">Register</button>
     <script type="text/javascript">
         function register() {
             const nickname = $('#nickname').val();

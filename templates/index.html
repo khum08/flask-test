@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contents</title>
+    <link rel="stylesheet" href="/static/css/style.css"></link>
+
 </head>
 <body>
     <script src="/static/js/jquery-3.6.0.min.js"></script>
     <div id="info-container">
-        <div>{{nickname}}</div>
-        <a href="/logout">logout</a>
+        <div class="info">User:{{nickname}}</div>
+        <button><a href="/logout">logout</a></button>
     </div>
     <form accept-charset="utf-8" enctype="multipart/form-data" id="upload-form">
         <input type="file" name="file" id="file"></input>
         <button onclick="onUpload()">Upload</button>
     </form>
+    <div class="list-tips">File List:</div>
     <div class="list-container" id="list-container">
     </div>
     <script type="text/javascript">
@@ -25,7 +28,7 @@
                 url: '/get_list',
                 success: function(data) {
                     console.log(data);
-                    const container = $(`<ul class="ul-container"><ul>`);
+                    const container = $(`<ul class="ul-container"></ul>`);
                     let itemLi;
                     data.result.forEach(function(item) {
                         itemLi = $(`<li class="ul-container">

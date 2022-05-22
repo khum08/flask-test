@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.title {
+    height: 100px;
+    line-height: 100px;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-item {
+    display: flex;
+    padding: 4px 0;
+}
+.form-item div {
+    width: 100px;
+}
+
+.form-item input {
+    width: 200px;
+}
+
+.form-item:last-child {
+    width: 300px;
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+button a {
+    text-decoration: none;
+    color: #000;
+}
+.form-item button {
+    margin-left: 6px;
+}
+
+#info-container {
+    display: flex;
+    height: 80px;
+    line-height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+}
+
+.info {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#upload-form {
+    display: flex;
+    padding: 20px 80px;
+}
+
+.list-tips {
+    padding: 8px 80px;
+    border-top: 1px solid #ccc;
+}
+
+.list-container {
+    padding: 0px 80px;
+}
+ul {
+    margin: 0;
+}
