@@ -7,6 +7,75 @@
     <title>Document</title>
 </head>
 <body>
-    hello flask template
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
+    <div id="info-container">
+        <div>{{nickname}}</div>
+        <a href="/logout">logout</a>
+    </div>
+    <form accept-charset="utf-8" enctype="multipart/form-data" id="upload-form">
+        <input type="file" name="file" id="file"></input>
+        <button onclick="onUpload()">Upload</button>
+    </form>
+    <div class="list-container" id="list-container">
+    </div>
+    <script type="text/javascript">
+        function getList() {
+            $('#list-container').empty();
+            $.ajax({
+                url: '/get_list',
+                success: function(data) {
+                    console.log(data);
+                    const container = $(`<ul class="ul-container"><ul>`);
+                    let itemLi;
+                    data.result.forEach(function(item) {
+                        itemLi = $(`<li class="ul-container">
+                                <a href="/download/${item}">${item}</a>
+                                <button value="${item}" onclick="deleteFile(event)">Delete</button>
+                            </li>`);
+                        container.append(itemLi);
+                    });
+                    $('#list-container').append(container);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR, textStatus, errorThrown);
+                }
+            })
+        }
+
+        function deleteFile(event) {
+            $.ajax({
+                url: '/delete/' + event.target.value,
+                success: function(data) {
+                    console.log(data);
+                    getList();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR, textStatus, errorThrown);
+                }
+            })
+        }
+
+        function onUpload() {
+            let formdata = new FormData($("#upload-form")[0]);
+            console.log(formdata);
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: formdata,
+                cache: false,
+                success: function(data) {
+                    console.log(data);
+                    getList();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR, textStatus, errorThrown);
+                }
+            })
+        }
+
+        getList();
+    </script>
 </body>
 </html>

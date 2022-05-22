@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class User(db.Document ,UserMixin):
     username = db.StringField()
     nickname = db.StringField()
-    floder = db.StringField()
+    folder = db.StringField()
     password_hash = db.StringField()
 
     def hash_password(self, password):
